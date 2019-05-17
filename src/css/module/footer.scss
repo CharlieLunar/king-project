@@ -1,0 +1,90 @@
+*{margin: 0;padding: 0;}
+#footer-container{
+    min-width: 1263px;
+    .footer-top{
+        width: 100%;
+        height: 230px;
+        background: #1b1b1b;
+        padding-top: 50px;
+        border-bottom: 1px solid #606060;
+        .djc-logo{
+            float: left;
+            width: 187px;
+            height: 56px;
+            margin-left: 62px;
+        }
+        .service-list{
+            float: left;
+            width: 395px;
+            height: 132px;
+            border-left: 1px solid #606060;
+            border-right: 1px solid #606060;
+            margin-left: 68px;
+            margin-right: 75px;
+            li{
+                width: 195px;
+                height: 55px;
+                line-height: 55px;
+                padding: 0 38px;
+                float: left;
+                list-style: none;
+                a{
+                    display: block;
+                    width: 118px;
+                    height: 30px;
+                    color: #a8a8a8;
+                    font-size: 13px;
+                    text-decoration: none;
+                    line-height: 24px;
+                    img{
+                        margin-right: 8px;
+                        float: left;
+                    }
+                    span{
+                        float: left;
+                    }
+                    &:hover{
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        .codes{
+            float: left;
+            width: 470px;
+            figure{
+                float: left;
+                width: 100px;
+                img{
+                    width: 100px;
+                    height: 100px;
+                }
+                figcaption{
+                    color: #fff;
+                    font-size: 16px;
+                    margin-top: 15px;
+                    text-align: center;
+                }
+            }
+        }
+        .code-center{
+            margin: 0 80px;
+        }
+    }
+    .footer-bottom{
+        width: 100%;
+        height: 165px;
+        background: #1b1b1b;
+        padding-top: 30px;
+        p{
+            font-size: 12px;
+            color: #777777;
+            text-align: center;
+            a{
+                color: #777777;
+                line-height: 25px;
+                text-decoration: none;
+            }
+        }
+    }
+}

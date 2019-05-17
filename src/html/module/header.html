@@ -1,0 +1,91 @@
+<div class="header-top">
+    <div class="wrap">
+        <a href="javascript:;" class="logo-qq"></a>
+        <a href="/"><img src="/images/logo.png" alt="" class="logo"></a>
+        <form action="" class="search-form">
+            <a href="#" class="search-icon"></a>
+            <input type="text" placeholder="请输入想要找的宝贝" class="search-input" id="search-input">
+        </form>
+        <div class="login-wrap">
+            <span class="login-icon" id="login-icon"></span>
+            <a href="#" class="login-a" id="login" data-toggle="modal" data-target="#addModal">立即登录</a>
+            <div id="after-login">
+              欢迎您，
+              <span id="name"></span>
+              <a href="javascript:;"><span id="exit">退出</span></a> 
+            </div>
+        </div>
+        <a href="/html/cart.html" class="cart-wrap">
+            <i class="cart-icon"></i>
+            <span>购物车</span>
+            <span class="cart-num" id="cart-num">0</span>
+        </a>
+    </div>
+</div>
+<nav class="header-nav">
+    <ul class="nav">
+        <li><a href="/index.html">首页</a></li>
+        <li><a href="/html/list.html">精品热销</a></li>
+        <li><a href="/html/list.html">精品手办</a></li>
+        <li><a href="/html/list.html">数码3C</a></li>
+        <li><a href="/html/list.html">服装服饰</a></li>
+        <li><a href="/html/list.html">毛绒抱枕</a></li>
+    </ul>
+    <a href="#" class="all-category">
+        <span>全部商品分类</span>
+        <i class="up-icon"></i>
+    </a>
+</nav>
+<ul class="aside">
+    <li class="order">
+        <a href="javascript:;" class="order-icon"></a>
+        <a href="javascript:;" class="order-word">我的订单</a>
+    </li>
+    <li class="address">
+        <a href="javascript:;" class="address-icon"></a>
+        <a href="javascript:;" class="address-word">收货地址</a>
+    </li>
+    <li class="cart-area">
+        <a href="/html/cart.html" class="cart-icon-wrap">
+            <i></i>
+            <span class="cart-word">购物车</span>
+            <span class="aside-cart-num" id="aside-cart-num">0</span>
+        </a>
+        
+    </li>
+    <li class="know">
+        <a href="javascript:;" class="know-icon"></a>
+        <a href="javascript:;" class="know-word">咨询</a>
+    </li>
+</ul>
+<div class="return-top">
+    <a href="#">
+        <i></i>
+    </a>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal-wrap">
+      <div class="modal-body">
+        <div class="form-wrap">
+          <h4>账号密码登录</h4>
+          <form class="form-main">
+              <input type="text" class="form-control usernameInput" id="inputUserName" placeholder="请输入昵称">
+              <input type="password" class="form-control pwdInput" id="inputPassword" placeholder="请输入密码">
+              
+          </form>
+          
+          <button class="form-control register-btn" id="login-btn">登录</button> 
+          <div class="checkbox">
+              <label>
+              <input type="checkbox" id="remember"> 7天免登录
+              </label>
+              <span class="text-info form-message">没有账号？  <a class="text-danger" href="/html/register.html"><ins>去注册</ins></a></span>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

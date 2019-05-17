@@ -1,0 +1,268 @@
+@import "module/header.scss";
+@import "module/footer.scss";
+
+*{margin: 0; padding: 0;}
+#main-container{
+    width: 100%;
+    height: 100%;
+    background: #f5f5f5;
+    .category{
+        width: 1280px;
+        height: 80px;
+        margin: 0 auto;
+        p{
+            font-size: 16px;
+            color: #3a3f4a;
+            line-height: 80px;
+            a{
+                color: #828282;
+                text-decoration: none;
+            }
+        }
+    }
+    .shop-info{
+        width: 1280px;
+        height: 600px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 30px;
+        .shop-img{
+            width: 458px;
+            height: 534px;
+            float: left;
+            .shop-img-big{
+                width: 458px;
+                height: 438px;
+                img{
+                    width: 458px;
+                    height: 438px;
+                }
+            }
+            .shop-img-ul{
+                width: 458px;
+                height: 73px;
+                margin-top: 21px;
+                li{
+                    width: 80px;
+                    height: 76px;
+                    margin-right: 10px;
+                    list-style: none;
+                    border: 1px solid #f2f2f2;
+                    float: left;
+                    position: relative;
+                    a{
+                        width: 80px;
+                        height: 76px; 
+                        img{
+                            position: absolute;
+                            width: 74px;
+                            height: 70px;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            margin: auto; 
+                        }
+                    }
+                    &:hover{
+                        background: #f74a4a;
+                    }
+                }
+                .sm-img-1{
+                    background: #f74a4a;
+                }
+            }
+        }
+        .main-info{
+            width: 720px;
+            height: 534px;
+            float: right;
+            .shop-name{
+                font-size: 27px;
+                color: #333333;
+                line-height: 44px;
+                margin: 0;
+            }
+            .shop-price{
+                color: #f74f4a;
+                font-size: 23px;
+                height: 70px;
+                line-height: 70px;
+                margin: 0;
+                .sale-price{
+                    font-size: 28px;
+                }
+                .origin-price{
+                    font-size: 12px;
+                    color: #999999;
+                    text-decoration: line-through;
+                }
+            }
+            .sale-info{
+                margin: 0;
+                width: 720px;
+                height: 60px;
+                line-height: 60px;
+                border-top: 1px dashed #eeeeee;
+                border-bottom: 1px dashed #eeeeee;
+                font-size: 15px;
+                display: flex;
+                justify-content: space-between;
+                span{
+                    color: #333333;
+                    span{
+                        color: #999999;
+                    }
+                }
+            }
+            .addCart-num{
+                height: 36px;
+                margin-top: 10px;
+                span{
+                    font-size: 15px;
+                    color: #888888;
+                    float: left;
+                    line-height: 54px;
+                }
+                .num-choose{
+                    height: 46px;
+                    width: 130px;
+                    margin-left: 40px;
+                    float: left;
+                    a{
+                        width: 34px;
+                        height: 34px;
+                        border: 1px solid #dddddd;
+                        float: left;
+                        text-align: center;
+                        line-height: 34px;
+                        font-size: 18px;
+                        color: #333333;
+                        text-decoration: none;
+                    }
+                    input{
+                        width: 58px;
+                        height: 34px;
+                        float: left;
+                        text-align: center;
+                        color: #333333;
+                        border: none;
+                        outline: none;
+                        border-top: 1px solid #dddddd;
+                        border-bottom: 1px solid #dddddd;
+                    }
+                }
+                .inventory{
+                    float: left;
+                    line-height: 36px;
+                    color: #5e6360;
+                }
+            }
+            .like{
+                height: 56px;
+                margin-top: 30px;
+                .add-cart{
+                    display: inline-block;
+                    width: 200px;
+                    height: 56px;
+                    background: #d63017;
+                    color: #fff;
+                    font-size: 20px;
+                    text-align: center;
+                    line-height: 56px;
+                    text-decoration: none;
+                    margin-right: 30px;
+                }
+                .buy{
+                    display: inline-block;
+                    width: 200px;
+                    height: 56px;
+                    background: #d63017;
+                    color: #fff;
+                    font-size: 20px;
+                    text-align: center;
+                    line-height: 56px;
+                    text-decoration: none;
+                    margin-right: 30px;
+                }
+                .add-wish{
+                    display: inline-block;
+                    width: 84px;
+                    height: 26px;
+                    border: 2px solid #dddddd;
+                    border-radius: 14px;
+                    text-align: center;
+                    font-size: 14px;
+                    line-height: 22px;
+                    color: #888888;
+                    position: relative;
+                    padding-left: 15px;
+                    text-decoration: none;
+                    i{
+                        position: absolute;
+                        top: 2px;
+                        left: 10px;
+                        width: 19px;
+                        height: 18px;
+                        background: url(/images/ico-detail.png) no-repeat -106px 0px;
+                        
+                    }
+                }
+            }
+        }
+    }
+    .detail-info{
+        width: 1280px;
+        margin: 0 auto;
+        background: #fff;
+        margin-top: 20px;
+        padding-bottom: 100px;
+        margin-bottom: 80px;
+        .detail-wrap{
+            width: 1220px;
+            height: 68px;
+            margin: 0 auto;
+            border-bottom: 1px solid #eeeeee;
+            .detai-point{
+                width: 690px;
+                height: 66px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-around;
+                li{
+                    list-style: none;
+                    line-height: 66px;
+                    font-size: 18px;
+                    cursor: pointer;
+                    text-align: center;
+                    a{
+                        color: #333333;
+                        text-decoration: none;
+                    }
+                }
+                .default-choose{
+                    display: inline-block;
+                    border-bottom: 3px solid red;
+                }
+            }
+        }
+        .word-info{
+            height: 70px;
+            margin-left: 50px;
+            margin-top: 20px;
+            li{
+                width: 300px;
+                list-style: none;
+                float: left;
+                font-size: 14px;
+                color: #7777a1;
+                line-height: 28px;
+            }
+        }
+        .detail-box{
+            width: 720px;
+            margin: 0 auto;
+            
+        }
+    }
+}

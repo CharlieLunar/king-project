@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的购物车-王者荣耀周边商城</title>
+    <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/cart.css">
+</head>
+<body>
+    <header id="header-container"></header>
+    <main id="main-container">
+        <div class="info-title">
+            <span class="title-info">商品信息</span>
+            <span class="title-price">单价（元）</span>
+            <span class="title-num">数量</span>
+            <span class="title-money">金额（元）</span>
+            <span class="title-operation">操作</span>
+        </div>
+        <p class="all-checked">
+            <input type="checkbox" id="all-checked">
+            <span>全选</span>
+        </p>
+        <ul id="cart-container"></ul>
+        <script type="text/html" id="cart-template">
+            {{each cart item}}
+            <li class="cart-shop" data-id="{{item.id}}">
+                <div class="info">
+                    <input type="checkbox" class="check">
+                    <a href="/html/detail.html?id={{item.id}}"><img src="{{item.images[0]}}" alt=""></a>
+                    <a href="/html/detail.html?id={{item.id}}"><span class="name">{{item.title}}</span></a>
+                </div>
+                <div class="price">
+                    <span class="origin-price">￥{{item.originPrice}}元</span>
+                    <span class="sale-price"><span class="now-price">{{item.price}}</span>元</span>
+                </div>
+                <div class="num-choose">
+                    <a href="javascript:;" class="num-less">-</a>
+                    <input type="text" value="{{item.num}}" class="num-input"> 
+                    <a href="javascript:;" class="num-more">+</a>
+                </div>
+                <span class="total-price"><span class="totalPrice">{{item.price*item.num}}</span>元</span>
+                <div class="operation">
+                    <a href="javascript:;"><span class="delete">删除</span></a>
+                    <a href="javascript:;"><span class="move">移入收藏夹</span></a>
+                </div>
+            </li>
+            {{/each}}
+        </script>
+        <div class="calc">
+            <div class="calc-wrap">
+                <div class="total-calc">
+                    <p class="total-buy">已选商品 <span class="total-num">0</span> 件  总价：<span class="total-price-calc">0.00 元</span> </p>
+                    <p class="coupon">不含运费和其他优惠</p>
+                </div>
+                <button class="calc-btn">去结算</button>
+            </div>
+        </div>
+        
+        <p class="recommend">为你推荐</p>
+    </main>
+    <footer id="footer-container"></footer>
+    <script src="/libs/requirejs/require.js" data-main="/js/cart.js"></script>
+</body>
+</html>

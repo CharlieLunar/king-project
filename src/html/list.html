@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>商品列表-王者荣耀周边商城</title>
+    <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/list.css">
+</head>
+<body>
+    <header id="header-container"></header>
+    <main id="main-container">
+        <p class="category">
+            <a href="/index.html">首页</a>>
+            <span>手办模玩</span>
+        </p>
+        <div class="list-header">
+            <div class="header-top">
+                <span>分类：</span>
+                <ul>
+                    <li><a href="/html/list.html">全部</a></li>
+                    <li><a href="/html/list.html">数码3C</a></li>
+                    <li><a href="/html/list.html">服饰</a></li>
+                    <li><a href="/html/list.html">手办模玩</a></li>
+                    <li><a href="/html/list.html">毛绒玩偶</a></li>
+                    <li><a href="/html/list.html">生活用品</a></li>
+                    <li><a href="/html/list.html">智能机器人</a></li>
+                </ul>
+            </div>
+            <div class="header-bottom">
+                <span>排序：</span>
+                <ul class="sort">
+                    <li><a href="javascript:;">默认</a></li>
+                    <li><a href="javascript:;">价格</a></li>
+                    <li><a href="javascript:;">新品</a></li>
+                    <li><a href="javascript:;">人气</a></li>
+                    <li><a href="javascript:;">销量</a></li>
+                </ul>
+                <div class="choose">
+                    <span>筛选：</span>
+                    <ul>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="ico1"></i>
+                                <span>有货</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="ico2"></i>
+                                <span>包邮</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="ico2"></i>
+                                <span>聚豆可抵</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="list-shop-wrap">
+            <div id="list-shop"></div>
+            <script type="text/html" id="list-template">
+                <ul class="list-shop">
+                    {{each list item}}
+                    <li>
+                        <a href="/html/detail.html?id={{item.id}}" target="_blank">
+                            <img src="{{item.image}}" alt="">
+                            <p>{{item.name}}</p>
+                            <p class="shop-price">
+                                ￥<span class="sale-price">{{item.salePrice}}</span>
+                                <span class="origin-price">￥{{item.originPrice}}</span>
+                            </p>
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+                <ul class="list-shop">
+                    {{each list item}}
+                    <li>
+                        <a href="/html/detail.html?id={{item.id}}" target="_blank">
+                            <img src="{{item.image}}" alt="">
+                            <p>{{item.name}}</p>
+                            <p class="shop-price">
+                                ￥<span class="sale-price">{{item.salePrice}}</span>
+                                <span class="origin-price">￥{{item.originPrice}}</span>
+                            </p>
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+                <ul class="list-shop">
+                    {{each list item}}
+                    <li>
+                        <a href="/html/detail.html?id={{item.id}}" target="_blank">
+                            <img src="{{item.image}}" alt="">
+                            <p>{{item.name}}</p>
+                            <p class="shop-price">
+                                ￥<span class="sale-price">{{item.salePrice}}</span>
+                                <span class="origin-price">￥{{item.originPrice}}</span>
+                            </p>
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </script>
+            <div class="go-page">
+                <ul class="page">
+                    <li class="page-index">1</li>
+                    <li>2</li>
+                </ul>
+                <ul class="direction">
+                    <li>
+                        <a href="javascript:;">
+                            <i class="goPrev"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="goNext"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <footer id="footer-container"></footer>
+    <script src="/libs/requirejs/require.js" data-main="/js/list"></script>
+</body>
+</html>

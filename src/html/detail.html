@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>详情页-王者荣耀周边商城</title>
+    <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/detail.css">
+</head>
+<body>
+    <header id="header-container"></header>
+    <main id="main-container">
+        
+        <div id="detail"></div>
+        <script type="text/html" id="detail-template">
+            <div class="category">
+                <p>
+                    <span><a href="javascript:;">商城首页</a>></span>
+                    <span><a href="javascript:;">手办模玩</a>></span>
+                    <span><a href="javascript:;">Q萌手办</a>></span>
+                    <span>{{data.title}}</span>
+                </p>
+            </div>
+            <div class="shop-info">
+                <div class="shop-img">
+                    <div class="shop-img-big">
+                        <img class="zoom-img" src="{{data.images[0]}}" data-zoom-image="{{data.images[0]}}" alt="">
+                    </div>
+                    
+                    <div class="shop-img-sm" id="gal1">
+                        <ul class="shop-img-ul">
+                            <li class="sm-img-1">
+                                <a href="javascript:;" data-image="{{data.images[0]}}" data-zoom-image="{{data.images[0]}}">
+                                    <img src="{{data.images[0]}}" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" data-image="{{data.images[1]}}" data-zoom-image="{{data.images[1]}}">
+                                    <img src="{{data.images[1]}}" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" data-image="{{data.images[2]}}" data-zoom-image="{{data.images[2]}}">
+                                    <img src="{{data.images[2]}}" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" data-image="{{data.images[3]}}" data-zoom-image="{{data.images[3]}}">
+                                    <img src="{{data.images[3]}}" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" data-image="{{data.images[4]}}" data-zoom-image="{{data.images[4]}}">
+                                    <img src="{{data.images[4]}}" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+                <div class="main-info">
+                    <p class="shop-name">{{data.title}}</p>
+                    <p class="shop-price">
+                        ￥<span class="sale-price">{{data.price}}</span>
+                        <span class="origin-price">￥{{data.originPrice}}</span>
+                    </p>
+                    <p class="sale-info">
+                        <span class="sale-num"><span>已售：</span>{{data.saleNum}}</span>
+                        <span class="review"><span>累计评价：</span>{{data.review}}</span>
+                        <span class="wish"><span>累计收藏：</span>{{data.addWish}}</span>
+                    </p>
+                    <div class="addCart-num">
+                        <span>数量</span>
+                        <div class="num-choose">
+                            <a href="javascript:;" id="num-less">-</a>
+                            <input type="text" value="1" id="num-choose">
+                            <a href="javascript:;" id="num-more">+</a>
+                        </div>
+                        <span class="inventory">（库存充足）</span>
+                    </div>
+                    <div class="like">
+                    <a href="javascript:;" class="add-cart" id="add-cart" data-id="{{data.id}}">加入购物车</a>
+                        <a href="javascript:;" class="buy">立即购买</a>
+                        <a href="javascript:;" class="add-wish">
+                            <i></i>
+                            收藏
+                        </a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="detail-info">
+                <div class="detail-wrap">
+                    <ul class="detai-point">
+                        <li class="default-choose">
+                            <a href="javascript:;">商品详情</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">用户点评(65)</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">联系商家</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="word-info">
+                    <ul>
+                        <li>
+                            <span>商品名称：</span>
+                            <span>幻梦庄周立体硅胶手机壳</span>
+                        </li>
+                        <li>
+                            <span>店铺：</span>
+                            <span>官方商城</span>
+                        </li>
+                        <li>
+                            <span>上架时间：</span>
+                            <span>2019-04-12</span>
+                        </li>
+                        <li>
+                            <span>商品毛重：</span>
+                            <span>1g</span>
+                        </li>
+                        <li>
+                            <span>商城：</span>
+                            <span>王者荣耀</span>
+                        </li>
+                        <li>
+                            <span>周边分类：</span>
+                            <span>数码3C/手机壳</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="detail-box">
+                    <p><img src="{{data.detailImg[0]}}" alt=""></p>
+                    <p><img src="{{data.detailImg[1]}}" alt=""></p>
+                    <p><img src="{{data.detailImg[2]}}" alt=""></p>
+                    <p><img src="{{data.detailImg[3]}}" alt=""></p>
+                    <p><img src="{{data.detailImg[4]}}" alt=""></p>
+                    <p><img src="{{data.detailImg[5]}}" alt=""></p>
+                    <p><img src="{{data.detailImg[6]}}" alt=""></p>
+                    <p><img src="{{data.detailImg[7]}}" alt=""></p>
+                </div>
+            </div>
+        </script>
+    </main>
+    <footer id="footer-container"></footer>
+    <script src="/libs/requirejs/require.js" data-main="/js/detail"></script>
+</body>
+</html>

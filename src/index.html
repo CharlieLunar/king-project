@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页-王者荣耀周边商城</title>
+    <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.min.css">
+    <script src="/libs/art-template/template-web.js"></script>
+    <link rel="stylesheet" href="/libs/swiper/css/swiper.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
+</head>
+<body>
+    <header id="header-container"></header>
+    <main id="main-container">
+        <div class="swiper-container banner">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="/html/list.html">
+                        <img src="/images/lunbo1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="/html/list.html">
+                        <img src="/images/lunbo2.png" alt="">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="/html/list.html">
+                        <img src="/images/lunbo3.jpg" alt="">
+                    </a>
+                </div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+        </div>
+
+
+        <!-- <div class="banner">
+            <a href="/html/list.html">
+                <img src="/images/lunbo1.jpg" alt="">
+            </a>
+        </div> -->
+        
+        <div id="index-display"></div>
+        <script type="text/html" id="shop-display">
+            <div class="toy-model">
+                <div class="word-wrap">
+                    <h2>精美手办</h2>
+                    <p>正品手办，品质重现</p>
+                    <a href="/html/list.html">
+                        <span class="more">更多</span>
+                        <i></i>
+                    </a>
+                </div>
+                <div class="main-banner">
+                    <a href="javascript:;">
+                        <img src="/images/main-banner1.jpg" alt="">
+                    </a>
+                </div>
+                <ul class="shop-wrap">
+                    {{each list item}}
+                    <li>
+                        <a href="/html/detail.html?id={{item.id}}" target="_blank">
+                            <img src="{{item.image}}" alt="">
+                            <p>{{item.title}}</p>
+                            <span>￥ {{item.price}}</span>
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="toy-model">
+                <div class="word-wrap">
+                    <h2>数码3C</h2>
+                    <p>王者3C，玩游戏，更刺激</p>
+                    <a href="/html/list.html">
+                        <span class="more">更多</span>
+                        <i></i>
+                    </a>
+                </div>
+                <div class="main-banner">
+                    <a href="javascript:;">
+                        <img src="/images/main-banner2.jpg" alt="">
+                    </a>
+                </div>
+                <ul class="shop-wrap">
+                    {{each list item}}
+                    <li>
+                        <a href="/html/detail.html?id={{item.id}}" target="_blank">
+                            <img src="{{item.image}}" alt="">
+                            <p>{{item.title}}</p>
+                            <span>￥ {{item.price}}</span>
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="toy-model">
+                <div class="word-wrap">
+                    <h2>生活周边</h2>
+                    <p>游戏时做你贴心的陪伴</p>
+                    <a href="/html/list.html">
+                        <span class="more">更多</span>
+                        <i></i>
+                    </a>
+                </div>
+                <div class="main-banner">
+                    <a href="javascript:;">
+                        <img src="/images/main-banner3.jpg" alt="">
+                    </a>
+                </div>
+                <ul class="shop-wrap">
+                    {{each list item}}
+                    <li>
+                        <a href="/html/detail.html?id={{item.id}}" target="_blank">
+                            <img src="{{item.image}}" alt="">
+                            <p>{{item.title}}</p>
+                            <span>￥ {{item.price}}</span>
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </script>
+    </main>
+    <footer id="footer-container"></footer>
+
+    <script src="/libs/requirejs/require.js" data-main="/js/index"></script>
+</body>
+
+</html>
