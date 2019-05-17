@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>我的购物车-王者荣耀周边商城</title>
     <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.min.css">
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon">
     <link rel="stylesheet" href="/css/cart.css">
 </head>
 <body>
@@ -22,6 +23,29 @@
             <input type="checkbox" id="all-checked">
             <span>全选</span>
         </p>
+        <div class="no-cart">
+            <div class="no-cart-top">
+                <img src="/images/pic-car.png" alt="">
+                <div class="no-cart-word">
+                    <p>你的购物车空空如也</p>
+                    <p><a href="/index.html">去商城看看吧 ></a></p>
+                </div>
+            </div>
+            <div class="no-cart-bottom">
+                <span>
+                    <img src="/images/shouhou.png" alt="">
+                    <span>官方正品</span>
+                </span>
+                <span>
+                    <img src="/images/zheng.png" alt="">
+                    <span>售后无忧</span>
+                </span>
+                <span>
+                    <img src="/images/you.png" alt="">
+                    <span>全国包邮</span>
+                </span>
+            </div>
+        </div>
         <ul id="cart-container"></ul>
         <script type="text/html" id="cart-template">
             {{each cart item}}
@@ -43,7 +67,7 @@
                 <span class="total-price"><span class="totalPrice">{{item.price*item.num}}</span>元</span>
                 <div class="operation">
                     <a href="javascript:;"><span class="delete">删除</span></a>
-                    <a href="javascript:;"><span class="move">移入收藏夹</span></a>
+                    <!-- <a href="javascript:;"><span class="move">移入收藏夹</span></a> -->
                 </div>
             </li>
             {{/each}}
@@ -51,7 +75,7 @@
         <div class="calc">
             <div class="calc-wrap">
                 <div class="total-calc">
-                    <p class="total-buy">已选商品 <span class="total-num">0</span> 件  总价：<span class="total-price-calc">0.00 元</span> </p>
+                    <p class="total-buy">总价：<span class="total-price-calc"> 0.00</span> 元 </p>
                     <p class="coupon">不含运费和其他优惠</p>
                 </div>
                 <button class="calc-btn">去结算</button>
@@ -60,6 +84,7 @@
         
         <p class="recommend">为你推荐</p>
     </main>
+    
     <footer id="footer-container"></footer>
     <script src="/libs/requirejs/require.js" data-main="/js/cart.js"></script>
 </body>

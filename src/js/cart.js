@@ -10,21 +10,44 @@ require(['require.config'],() => {
 
             init(){
                 let cart = localStorage.getItem('cart');
-                if(cart){
-                    //渲染列表
-                    cart = JSON.parse(cart);
-                    this.render(cart);
+                cart = JSON.parse(cart);
+                if(cart === null || cart.length === 0){
+                    console.log(cart === null || cart.length === 0)
+                    let infoTitle = $(".info-title"),
+                        allChecked = $(".all-checked"),
+                        recommend = $(".recommend"),
+                        calc = $(".calc");
+                    let noCart = $(".no-cart");
+                    infoTitle.hide();
+                    allChecked.hide();
+                    recommend.hide();
+                    calc.hide();
+                    noCart.show();
                 }else{
-                    alert('购物车为空');
+                    //渲染列表
+                    //cart = JSON.parse(cart);
+                    this.render(cart);
+                    let noCart = $(".no-cart");
+                    let infoTitle = $(".info-title"),
+                        allChecked = $(".all-checked"),
+                        recommend = $(".recommend"),
+                        calc = $(".calc");
+                    noCart.hide();
+                    infoTitle.show();
+                    allChecked.show();
+                    recommend.show();
+                    calc.show();
                 }
             }
+
 
             render(cart){
                 $("#cart-container").html(template('cart-template',{cart}));
                 this.getMoreNum();
                 this.getLessNum();
                 this.delClick();
-                this.totalCalc();
+                //this.totalCalc();
+                
             }
 
             //全选
@@ -36,6 +59,7 @@ require(['require.config'],() => {
                         check.checked = allChecked.checked;
                     })
                     this.c = allChecked.checked ? checks.length : 0;//修改C的值
+                    this.numCalc();
                 }
             }
 
@@ -47,31 +71,64 @@ require(['require.config'],() => {
                     check.onchange = () => {
                         this.c += check.checked ? 1 : -1;
                         allChecked.checked = this.c === checks.length;
+                        this.numCalc();
                     }
                 })
+                
             }
 
             //计算总价
-            totalCalc(){
-                //遍历li，找到已勾选的商品，取出input数据相加，赋值
+            //遍历li，找到已勾选的商品，取出小计数据相加，赋值
+            numCalc(){
                 let aTr = $('.cart-shop');
-                let totalNum = document.querySelector('.total-num');
-                let count = 0;
+                let totalPriceCalc = document.querySelector('.total-price-calc');
+                let sPriceNum = 0; 
                 $('.cart-shop').each(function(index){
-                    let radioCheck = $(this).find(".info").find(".check"); 
-                    radioCheck.on("change",() => {
-                        if(radioCheck.prop('checked')){
-                            let numInput = $(this).find(".num-choose").find(".num-input");
-                            count += Number(numInput.val());
-                        }else{
-                            let numInput = $(this).find(".num-choose").find(".num-input");
-                            count -= Number(numInput.val());
-                        }
-                        totalNum.innerHTML = count;
-                    })
+                    let radioCheck = $(this).find(".info").find(".check");
                     
+                    if(radioCheck.prop('checked')){
+                        // let numMore = $(".num-more");
+                        // numMore.on('click',() => {
+
+                        // })
+                        //console.log($(this).find(".total-price").find(".totalPrice"))
+                        let sPrice = $(this).find(".total-price").find(".totalPrice");
+                        //console.log(sPrice)
+                        let s = Number(sPrice.html());
+                        //console.log(s)
+                        sPriceNum += s;
+                        
+                        //如果在选中状态下数量++，则
+                    }
+                    totalPriceCalc.innerHTML = sPriceNum.toFixed(2);
                 })
+                
             }
+
+            // //计算选中数量
+            // totalCalc(){
+            //     //遍历li，找到已勾选的商品，取出input数据相加，赋值
+            //     let aTr = $('.cart-shop');
+            //     let totalNum = document.querySelector('.total-num');
+            //     let count = 0;
+            //     $('.cart-shop').each(function(index){
+            //         let radioCheck = $(this).find(".info").find(".check"); 
+            //         radioCheck.on("change",() => {
+            //             if(radioCheck.prop('checked')){
+            //                 let numInput = $(this).find(".num-choose").find(".num-input");
+            //                 count += Number(numInput.val());
+            //                 let numMore = $(this).find(".num-choose").find(".num-more");
+            //                 numMore.on('click',() => {
+            //                     count++;
+            //                 })
+            //             }else{
+            //                 let numInput = $(this).find(".num-choose").find(".num-input");
+            //                 count -= Number(numInput.val());
+            //             }
+            //             totalNum.innerHTML = count;
+            //         })
+            //     })
+            // }
 
             delClick(){
                 //循环li 找到每个li对应的删除按钮
@@ -104,6 +161,7 @@ require(['require.config'],() => {
                                 this.c += check.checked ? 1 : -1;
                             })
                             allChecked.checked = this.c === checks.length;
+                            this.init();
                         }
                         this.checkChange();
                     }
@@ -117,11 +175,11 @@ require(['require.config'],() => {
                 let numMore = $(".num-more");
                 let numInput = $(".num-input");
                 let aTr = $('.cart-shop');
-                
+                let _this = this;
                 numMore.each(function(a){
                     $(this).on('click',() => {
-                        let totalNum = document.querySelector('.total-num');
-                        let shopNum = totalNum.innerHTML;
+                        // let totalNum = $('.total-num');
+                        // let shopNum = totalNum.html();
                         let count = Number(numInput[a].value);
                         count++;
                         numInput[a].value = count;
@@ -146,15 +204,14 @@ require(['require.config'],() => {
                         let price = Number(salePrice[a].innerHTML);
                         totalPrice[a].innerHTML = `${(count*price).toFixed(2)}`;
 
-
                         //加数量时，找到对应的li，判断当前li下的单选框是否选中，若选中则获取总件数，总件数++，未选中则什么都不做
                         
-                        let trCheck = aTr[a].children[0].children[0];
-                        if(trCheck.checked){
-                            shopNum++;
-                            totalNum.innerHTML = shopNum;
-                        }
-                        
+                        // let trCheck = aTr[a].children[0].children[0];
+                        // if(trCheck.checked){
+                        //     shopNum++;
+                        //     totalNum.innerHTML = shopNum;
+                        // }
+                        _this.numCalc();
                     })
                     
                 })
@@ -163,8 +220,12 @@ require(['require.config'],() => {
             getLessNum(){
                 let numLess = $(".num-less");
                 let numInput = $(".num-input");
+                let aTr = $('.cart-shop');
+                let _this = this;
                 numLess.each(function(a){
                     $(this).on('click',() => {
+                        // let totalNum = $('.total-num');
+                        // let shopNum = totalNum.html();
                         let count = Number(numInput[a].value);
                         if(count <= 1){
                             count = 1; 
@@ -175,7 +236,7 @@ require(['require.config'],() => {
                         //先把cart取出来
                         let cart = localStorage.getItem('cart');
                         let id = Number($(".cart-shop").attr("data-id"));
-                        console.log(id);
+                        //console.log(id);
                         cart = JSON.parse(cart);
                         let index = -1;
                         if(cart.some((shop,i) => {
@@ -198,11 +259,36 @@ require(['require.config'],() => {
                         let totalPrice = $(".totalPrice");
                         let price = Number(salePrice[a].innerHTML);
                         totalPrice[a].innerHTML = `${(count*price).toFixed(2)}`;
+
+                        // let trCheck = aTr[a].children[0].children[0];
+                        // if(trCheck.checked){
+                        //     //循环找到已勾选的商品，把它们的input值相加，shopNum不能小于它们的和
+                        //     if(count > 1){
+                        //         shopNum--;
+                        //         // totalNum.innerHTML = shopNum;
+                        //         console.log(111)
+                        //     }else if(count === 1){
+                        //         console.log(222)
+                        //         let aTr = $('.cart-shop');
+                        //         let checkedNum = 0;
+                        //         $('.cart-shop').each(function(index){
+                        //             let radioCheck = $(this).find(".info").find(".check"); 
+                        //             if(radioCheck.prop('checked')){
+                        //                 let numInput = $(this).find(".num-choose").find(".num-input");
+                        //                 let calcNum = Number(numInput.val());
+                        //                 checkedNum += calcNum;
+                        //                 shopNum = checkedNum;
+                        //             }
+                        //         })
+                                
+                        //     }
+                        //     totalNum.innerHTML = shopNum;
+                            
+                        // }
+                        _this.numCalc();
                     })
                 })
             }
-
-            
         }
         new Cart();
     })

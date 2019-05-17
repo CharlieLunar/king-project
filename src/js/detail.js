@@ -108,7 +108,6 @@ require(['require.config'],() => {
                     }else{
                         //购物车为空
                         //第一次加入购物车的时候只买一个
-
                         cart = [{...this.data,num: count}];
                     }
                     //重新存cart
