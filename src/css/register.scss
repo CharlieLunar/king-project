@@ -28,13 +28,27 @@ body{
         .form-main{
             width: 300px;
             margin: 0 auto;
+            position: relative;
             .usernameInput{
-                margin-bottom: 20px;
+                margin-bottom: 30px;
+            }
+            .user-prompt-info{
+                position: absolute;
+                top: 39px;
+                left: 0px;
+                color: red;
+                display: none;
             }
             .pwd-confirm{
-                margin-top: 20px;
+                margin-top: 30px;
             }
-            
+            .pwd-prompt-info{
+                position: absolute;
+                top: 103px;
+                left: 0px;
+                color: red;
+                display: none;
+            }
         }
         .register-btn{
             display: block;

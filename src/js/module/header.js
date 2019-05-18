@@ -6,6 +6,7 @@
 define(['url','jquery','bootstrap','cookie'],(url,$) => {
     function Header(){
         this.container = $("#header-container");
+        //this.cartClick = $(".cart-click");
         this.load().then(() => {
             this.search();
             this.isLogin();
